@@ -13,7 +13,7 @@
     "dev": "remix build && run-p 'dev:*'",
     "start": "cross-env NODE_ENV=production miniflare ./build/index.js",
     "typecheck": "tsc -p . --noEmit",
-    "lint:eslint": "eslint . --ext ts --cache",
+    "lint:eslint": "eslint . --ext ts,tsx --cache",
     "lint:prettier": "yarn run:prettier --check",
     "lint:cspell": "cspell lint './**/*.{tsx,js,jsx,json,md,yml,yaml}' --gitignore --cache",
     "lint": "run-s 'lint:*'",

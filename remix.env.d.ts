@@ -2,6 +2,6 @@
 /// <reference types="@remix-run/cloudflare/globals" />
 /// <reference types="@cloudflare/workers-types" />
 
-declare var process: {
-  env: { NODE_ENV: 'development' | 'production' };
-};
+declare let process: {
+  env: { NODE_ENV: "development" | "production" }
+}
