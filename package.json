@@ -10,8 +10,21 @@
     "deploy": "npm run build && wrangler publish",
     "dev:remix": "remix watch",
     "dev:miniflare": "cross-env NODE_ENV=development miniflare ./build/index.js --watch",
-    "dev": "remix build && run-p dev:*",
-    "start": "cross-env NODE_ENV=production miniflare ./build/index.js"
+    "dev": "remix build && run-p 'dev:*'",
+    "start": "cross-env NODE_ENV=production miniflare ./build/index.js",
+    "typecheck": "tsc -p . --noEmit",
+    "lint:eslint": "eslint . --ext ts --cache",
+    "lint:prettier": "yarn run:prettier --check",
+    "lint:cspell": "cspell lint './**/*.{tsx,js,jsx,json,md,yml,yaml}' --gitignore --cache",
+    "lint": "run-s 'lint:*'",
+    "fix:eslint": "yarn lint:eslint --fix",
+    "fix:prettier": "yarn run:prettier --write",
+    "fix": "run-s 'fix:*'",
+    "run:prettier": "prettier '**/*.{tsx,js,jsx,json,md,yml,yaml}'",
+    "lint-staged": "lint-staged --allow-empty -r",
+    "prepare:husky": "husky install",
+    "prepare:git": "git config --local --add merge.ff false && git config --local --add pull.ff only",
+    "prepare": "run-p 'prepare:*'"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.2.0",
@@ -26,17 +39,36 @@
     "@cloudflare/workers-types": "^3.10.0",
     "@remix-run/dev": "^1.4.3",
     "@remix-run/eslint-config": "^1.4.3",
+    "@tsconfig/strictest": "^1.0.1",
+    "@types/jest": "^27.5.1",
     "@types/react": "^17.0.45",
     "@types/react-dom": "^17.0.17",
-    "eslint": "^8.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "commitizen": "^4.2.4",
+    "cspell": "^6.0.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.0",
+    "lint-staged": "^12.4.2",
     "miniflare": "^2.4.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.6.2",
-    "typescript": "^4.6.4",
+    "ts-jest": "^28.0.3",
+    "tsd": "^0.20.0",
+    "typescript": "^4.7.2",
     "wrangler": "^2.0.5"
   },
   "engines": {
     "node": ">=16.7.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "packageManager": "yarn@3.0.0"
 }

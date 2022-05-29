@@ -1,0 +1,22 @@
+{
+  "editor.tabSize": 2,
+  // typescript
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // eslint
+  "eslint.workingDirectories": ["."],
+  "eslint.validate": ["typescript"],
+  "eslint.options": {
+    "overrideConfigFile": ".eslintrc.cjs"
+  },
+  // prettier
+  "prettier.configPath": ".prettierrc.js",
+  // autofix
+  "editor.formatOnSave": false,
+  "[typescriptreact][typescript][javascript][javascriptreact][jsonc][json][markdown][mdx]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // cspell
+  "cSpell.ignoreRegExpList": ["[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"]
+}

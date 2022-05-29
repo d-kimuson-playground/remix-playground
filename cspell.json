@@ -1,0 +1,16 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "miniflare",
+    "typecheck",
+    "Miniflare",
+    "Quickstart",
+    "esbenp",
+    "dbaeumer",
+    "prettierrc",
+    "autofix",
+    "textlint"
+  ],
+  "ignorePaths": ["yarn.lock"]
+}
